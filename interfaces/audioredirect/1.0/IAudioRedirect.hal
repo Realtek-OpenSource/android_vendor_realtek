@@ -1,0 +1,50 @@
+/*
+ * Copyright (c) 2017 Realtek Semiconductor Corp.
+ */
+
+package vendor.realtek.audioredirect@1.0;
+
+interface IAudioRedirect {
+    /**
+     * Start audio capture
+     *
+     * @return status Status
+     */
+    startAudioCap() generates (int32_t status);
+
+    /**
+     * Stop audio capture
+     *
+     * @return status Status
+     */
+    stopAudioCap() generates (int32_t status);
+
+    /**
+     * Start audio render
+     *
+     * @return status Status
+     */
+    startAudioRender() generates (int32_t status);
+
+    /**
+     * Flush audio rendor
+     *
+     * @return status Status
+     */
+    flushAudioRender() generates (int32_t status);
+
+    /**
+     * Stop audio rendor
+     *
+     * @return status Status
+     */
+    stopAudioRender() generates (int32_t status);
+
+    /**
+     * Set audio redirect mode
+     *
+     * @param mode audio redirect mode
+     * @return status Status
+     */
+    setAudioMode(int32_t mode) generates (int32_t status);
+};

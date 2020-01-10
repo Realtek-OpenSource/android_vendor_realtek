@@ -1,0 +1,24 @@
+
+cc_library_shared {
+
+    //LOCAL_MODULE_PATH_32 := $(TARGET_OUT)/lib/
+    //LOCAL_MODULE_PATH_64 := $(TARGET_OUT)/lib64/
+    //LOCAL_MULTILIB := both
+
+    shared_libs: ["libgui_rtk"] + ["libutils"] + ["libcutils"] + ["liblog"] + ["libbinder"],
+
+    srcs: ["src/ISidebandClient.cpp"] + ["src/ISideband.cpp"] + ["src/SidebandClient.cpp"] + ["src/SidebandControl.cpp"],
+
+    local_include_dirs: ["inc"],
+    include_dirs: [
+         "vendor/realtek/libs/gui_rtk/include",
+         "frameworks/native/opengl/include"
+    ],
+    //LOCAL_CFLAGS += -Wno-multichar
+
+    name: "libSidebandClient",
+    proprietary: true,
+    //LOCAL_PROPRIETARY_MODULE := true
+
+}
+

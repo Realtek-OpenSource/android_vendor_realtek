@@ -1,0 +1,7 @@
+package vendor.realtek.allocator@1.0;
+import android.hardware.graphics.bufferqueue@1.0::IGraphicBufferProducer;
+
+interface IHSidebandClient {
+    getProducer() generates(int32_t ret, IGraphicBufferProducer producer);
+    getSidebandStream() generates(int32_t ret, handle sidebandStream);
+};

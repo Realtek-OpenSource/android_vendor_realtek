@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2018 Realtek Semiconductor Corp.
+ */
+
+package vendor.realtek.screenrecord@1.0;
+
+interface IScreenRecordService {
+    Initiate(int32_t hal_format, int32_t width, int32_t height, int32_t type, uint32_t usage) generates (bool status);
+    Release() generates (bool status);
+    ConfigSettings() generates (bool status);
+    CreateBuffer() generates (int32_t index);
+    GetBufferCount() generates (int32_t num);
+    GetCaptureFps() generates (int32_t fps);
+    GetTimeStamp(int32_t index) generates (int64_t time);
+    GetPhyAddr(int32_t index) generates (int32_t phyaddr);
+    AcquiredBuffer() generates (int32_t index);
+    FreeBuffer(int32_t index) generates (bool status);
+    FreeAllBuffer() generates (bool status);
+};

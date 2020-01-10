@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) 2017 Realtek Semiconductor Corp.
+ */
+
+package vendor.realtek.audioredirectutil@1.0;
+
+interface IAudioRedirectUtil {
+
+    prepare() generates (int32_t status);
+    flush() generates (int32_t status);
+    startCap(memory mem) generates(memory mem, int32_t state, int32_t size);
+    stopCap() generates (int32_t status);
+    setDelay(int32_t delay) generates (int32_t status);
+
+};

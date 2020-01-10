@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<app-recommendations>
+    <app
+        name="Google"
+        package_name="org.chromium.webview_shell"
+        data_uri="http://www.google.com"
+        is_virtual_app="true"
+        />
+</app-recommendations>

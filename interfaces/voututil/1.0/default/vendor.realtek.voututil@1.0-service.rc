@@ -1,0 +1,4 @@
+service voututil-1-0 /vendor/bin/hw/vendor.realtek.voututil@1.0-service
+    class hal
+    user system
+    group system media

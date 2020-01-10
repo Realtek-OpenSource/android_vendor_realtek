@@ -1,0 +1,4 @@
+service dptxutil-1-0 /vendor/bin/hw/vendor.realtek.dptxutil.provider@1.0-service
+    class hal
+    user system
+    group system

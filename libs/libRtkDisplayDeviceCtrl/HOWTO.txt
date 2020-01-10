@@ -1,0 +1,7 @@
+To use this jar
+1. in apk Android.mk add:
+LOCAL_PROGUARD_ENABLED:= disabled
+LOCAL_PRIVATE_PLATFORM_APIS := true
+LOCAL_STATIC_ANDROID_LIBRARIES := RtkDisplayDeviceCtrl
+
+then you are ready to use Realtek display device control library.

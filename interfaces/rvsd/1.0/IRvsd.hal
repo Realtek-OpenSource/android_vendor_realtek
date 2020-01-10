@@ -1,0 +1,85 @@
+/*
+ * Copyright (c) 2017 Realtek Semiconductor Corp.
+ */
+
+package vendor.realtek.rvsd@1.0;
+
+import android.hardware.graphics.bufferqueue@1.0::IGraphicBufferProducer;
+import IRvsdCallback;
+import IMediaRequest;
+
+interface IRvsd {
+	/**
+     * Set layer order
+	 *
+     * @param instIdx RVSD instance ID (0~3)
+	 * @param order Layer order
+	 */
+    setLayerOrder(int32_t instIdx, uint32_t order);
+
+	/**
+     * Set play speed
+	 *
+     * @param instIdx RVSD instance ID (0~3)
+	 * @param speed Play speed
+	 */
+	setPlaySpeed(int32_t instIdx, int32_t speed);
+
+	/**
+     * Set video surface texture
+	 *
+     * @param instIdx RVSD instance ID (0~3)
+	 * @param gbp Graphic Buffer Producer
+	 */
+	setVideoSurfaceTexture(int32_t instIdx, IGraphicBufferProducer gbp);
+
+	/**
+     * Get playback pts
+	 *
+     * @param instIdx RVSD instance ID (0~3)
+	 * @return videoPts Video PTS
+	 * @return audioPts Audio PTS
+	 */
+	getPlaybackPts(int32_t instIdx) generates (int64_t videoPts, int64_t audioPts);
+
+	/**
+     * Get video buffer fullness
+	 *
+     * @param instIdx RVSD instance ID (0~3)
+	 * @return size Buffer size
+	 * @return fullness Buffer fullness
+	 */
+    getVideoBufferFullness(int32_t instIdx) generates (int32_t size, int32_t fullness);
+
+	/**
+     * Get video plane instance
+	 *
+     * @param instIdx RVSD instance ID (0~3)
+	 * @return plane Video plane instance
+	 */
+	getVideoPlaneInstance(int32_t instIdx) generates (int32_t plane);
+
+    /**
+     * Get IMediaRequest object to send command to DvdPlayer
+     *
+     * @return req IMediaRequest object
+     */
+    getMediaRequestInstance() generates (IMediaRequest req);
+
+    /**
+     * Create an instance of RVSD
+     *
+     * @param callback Callback object to pass events.
+     * @param id specify the id append to the socketname and -1 means no specify
+     * @return instIdx RVSD instance ID, 0~3 means OK and -1 means fail
+     */
+    createRVSDInstance(IRvsdCallback callback, int32_t id) generates (int32_t instIdx);
+
+    /**
+     * Destroy an instance of RVSD
+     *
+     * @param instIdx RVSD instance ID (0~3)
+     * @return result 0 means OK
+     */
+    destroyRVSDInstance(int32_t instIdx) generates (int32_t result);
+};

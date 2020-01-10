@@ -1,0 +1,77 @@
+/*
+ * Copyright (c) 2018 Realtek Semiconductor Corp.
+ */
+
+package vendor.realtek.dptxutil.provider@1.0;
+
+import vendor.realtek.dptxutil.common@1.0;
+import IDPTxUtilCallback;
+
+interface IDPTxUtil {
+
+    /**
+     * set display mode of dptx
+     */
+    setDisplayMode(int32_t mode) generates (int32_t result);
+
+    /**
+     * check if device has DPTx driver built-in
+     */
+    hasDPTxBackend() generates (int32_t result);
+
+    /**
+     * set callback function, so DPTx service can notify event
+     *
+     * @param key callback key
+     * @param callback function
+     * @return result
+     */
+    setCallback(int32_t key, IDPTxUtilCallback callback) generates (int32_t result);
+
+    /**
+     * remove registered callback.
+     *
+     * @param key of callback
+     */
+    removeCallback(int32_t key) generates (int32_t result);
+
+    /**
+     * read saved output format from factory
+     */
+    readOutputFormat() generates (int32_t result, OutputFormat format);
+
+    /**
+     * save OutputFormat format to factory area
+     */
+    saveOutputFormat(OutputFormat format) generates (int32_t result);
+
+    /**
+     * read EDID auto mode property
+     */
+    readEdidAutoMode() generates(int32_t result);
+
+    /**
+     * save EDID auto mode property
+     */
+    saveEdidAutoMode(int32_t value) generates(int32_t result);
+
+    /**
+     * check if DPTx EDID Ready
+     */
+	getDPTxEDIDReady() generates(bool result);
+
+    /**
+     * New API that uses new kernel ioctl to set output format
+     */
+    setOutputFormat(OutputFormat format,int32_t flags) generates(int32_t result);
+
+    /**
+     * report supported formats read from driver
+     */
+    getEDIDSupportList() generates(int32_t result, EDIDSupportList list);
+
+    /**
+     * get current output format from driver
+     */
+    getCurrentOutputFormat() generates (int32_t result, OutputFormat format);
+};

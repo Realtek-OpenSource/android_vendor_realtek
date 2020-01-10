@@ -1,0 +1,72 @@
+/*
+ * Copyright (c) 2017 Realtek Semiconductor Corp.
+ */
+
+package vendor.realtek.hdmiutil.common@1.0;
+
+/**
+ * struct VideoFormat {
+ *    vec<int32_t> mFormats;
+ * };
+ */
+
+struct EDIDData {
+    vec<uint8_t> mData;
+};
+
+/**
+ * Sync with android/hardware/realtek/hdmitx/hdmi_common.h
+ * hdmi_format_support
+ */
+struct HDMIFormatSupport {
+    uint8_t vic;
+    uint8_t rgb444;
+    uint8_t yuv422;
+    uint8_t yuv444;
+    uint8_t yuv420;
+    uint8_t support_3d;
+    uint8_t support_fs;
+    uint8_t reserved;
+};
+
+/**
+ * sync to android/hardware/realtek/hdmitx/hdmi_common.h
+ */
+struct OutputFormat {
+    uint8_t mode;
+    uint8_t vic;
+    uint8_t freq_shift;
+    uint8_t color;
+    uint8_t color_depth;
+    uint8_t _3d_format;
+    uint8_t hdr;
+    uint8_t reserved;
+};
+
+/**
+ * New IOCTL added from kernel 4.9
+ */
+struct EDIDSupportList {
+    vec<HDMIFormatSupport> mList;
+};
+
+/**
+ * data structure to return resolved color info
+ */
+struct ColorSet {
+    int32_t color;
+    int32_t color_depth;
+};
+
+/**
+ * Let hwc get info of TV capability
+ */
+struct TVCapInfo {
+    int32_t mConnected;
+    int32_t mEotf;
+    int32_t mDV;
+    int32_t mMetaDataLen;
+    int32_t mMaxLuminance;
+    int32_t mAvgLuminance;
+    int32_t mMinLuminance;
+};

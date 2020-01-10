@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) 2017 Realtek Semiconductor Corp.
+ */
+
+package vendor.realtek.hdmiutil.provider@1.0;
+
+interface IHdmiUtilCallback {
+
+    /**
+     * process event from HDMI service
+     */
+    oneway handleEvent(int32_t event, int32_t vic, int32_t mode, int32_t interfaceType);
+
+};
+

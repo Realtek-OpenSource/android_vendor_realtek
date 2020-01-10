@@ -1,0 +1,164 @@
+/*
+ * Copyright (c) 2017 Realtek Semiconductor Corp.
+ */
+
+package vendor.realtek.audioutil@1.0;
+
+import IAudioUtilCallback;
+
+interface IAudioUtil {
+	/**
+     * Set Audio Spdif output mode
+	 *
+	 * @param mode Output mode
+     * @return status Status
+	 */
+    setAudioSpdifOutputMode(int32_t mode) generates (int32_t status);
+
+    /**
+     * Set Audio Spdif output OFF mode
+     *
+     * @return status Status
+     */
+    setAudioSpdifOutputOffMode() generates (int32_t status);
+
+	/**
+     * Set audio HDMI output mode
+	 *
+	 * @param mode HDMI output mode
+     * @return status Status
+	 */
+    setAudioHdmiOutputMode(int32_t mode) generates (int32_t status);
+
+	/**
+     * Set audio AGC mode
+	 *
+	 * @param mode AGC mode
+     * @return status Status
+	 */
+    setAudioAGC(int32_t mode) generates (int32_t status);
+
+	/**
+     * Set audio force channel control
+	 *
+	 * @param mode Channle control mode
+     * @return status Status
+	 */
+    setAudioForceChannelCtrl(int32_t mode) generates (int32_t status);
+
+	/**
+     * Set audio surround sound Mode
+	 *
+	 * @param mode Surround sound mode
+     * @return status Status
+	 */
+    setAudioSurroundSoundMode(int32_t mode) generates (int32_t status);
+
+	/**
+     * Set audio HDMI freq mode
+	 *
+	 * @param mode HDMI freq mode
+     * @return status Status
+	 */
+    setAudioHdmiFreqMode() generates (int32_t status);
+
+	/**
+     * Set audio dec volume
+	 *
+	 * @param volume Dec volume
+     * @return status Status
+	 */
+    setAudioDecVolume(int32_t volume) generates (int32_t status);
+
+	/**
+     * Set audio mute
+	 *
+	 * @param mute Mute
+     * @return status Status
+	 */
+    setAudioMute(bool mute) generates (int32_t status);
+
+	/**
+     * Set audio HDMI mute
+	 *
+	 * @param mute Mute
+     * @return status Status
+	 */
+    setAudioHdmiMute(bool mute) generates (int32_t status);
+
+	/**
+     * Set HDMI Rx volume
+	 *
+	 * @param volume Volume
+	 * @param aoId AO instance ID
+	 * @param aiId AI instance ID
+	 * @param pinID Pin ID
+     * @return status Status
+	 */
+    setAudioHdmiRxVolume(int32_t volume, int32_t aoId, int32_t aiId, int32_t pinId) generates (int32_t status);
+
+	/**
+     * Set HDMI Rx to BT Usb
+	 *
+	 * @param flag Flag
+	 * @param aiId AI Id
+     * @return status Status
+	 */
+    setHDMIRXtoBTUsb(int32_t flag, int32_t aiId) generates (int32_t status);
+
+    /**
+     * Construct or destroy HDMI Rx audio instance used to palyback and record Rx audio
+     *
+     * @param flag : true(construct instance), false(destroy instance)
+     * @param sampleRate : audio sampling rate
+     * @param channelCount : audio channel count
+     */
+    setHDMIRxAudioInstance(bool flag, int32_t sampleRate, int32_t channelCount) generates (int32_t status);
+
+    /**
+     * Render Rx audio or not
+     *
+     * @param flag : true(render), false(mute)
+     */
+    setHDMIRxAudioRender(bool flag) generates (int32_t status);
+
+    /**
+     * Record Rx audio or not
+     *
+     * @param flag : true(start recording), false(stop recording)
+     */
+    setHDMIRxAudioRecord(bool flag) generates (int32_t status);
+
+    /**
+     * Capture Rx audio data
+     *
+     */
+    captureHDMIRxAudioData(memory mem) generates(memory mem, int64_t timeStamp, int32_t size, int32_t channelCount, int32_t sampleRate, int32_t status);
+
+    /**
+     * set callback function, so AudioUtil service can notify event
+     *
+     * @param key callback key
+     * @param callback function
+     * @return result
+     */
+    setCallback(int32_t key, IAudioUtilCallback callback) generates (int32_t result);
+
+    /**
+     * remove registered callback.
+     *
+     * @param key of callback
+     */
+    removeCallback(int32_t key) generates (int32_t result);
+
+    /**
+     * Set HDMI Rx volume
+     *
+     * @param volume Volume
+     * @param aoId AO instance ID
+     * @param aiId AI instance ID
+     * @param pinID Pin ID
+     * @return status Status
+     */
+    setAudioHdmiRxVolume2(int32_t volume) generates (int32_t status);
+};

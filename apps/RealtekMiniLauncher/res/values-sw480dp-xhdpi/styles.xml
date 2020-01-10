@@ -1,0 +1,12 @@
+<resources>
+    <style name="THUSelectedText">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/ItemSelectedTextColor</item>
+    </style>
+    <style name="THUUnselectedText">
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/ItemUnselectedTextColor</item>
+    </style>
+</resources>

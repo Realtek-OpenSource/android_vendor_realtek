@@ -1,0 +1,38 @@
+/*
+ * Copyright (c) 2018 Realtek Semiconductor Corp.
+ */
+
+package vendor.realtek.dptxutil.common@1.0;
+
+struct EDIDData {
+    vec<uint8_t> mData;
+};
+
+/**
+ * Sync with android/hardware/realtek/dptx/rtk_dptx.h
+ * dptx_format_support
+ */
+struct DPTxFormatSupport {
+    uint8_t vic;
+    uint8_t reserved1;
+    uint8_t reserved2;
+    uint8_t reserved3;
+};
+
+/**
+ * Sync with android/hardware/realtek/dptx/rtk_dptx.h
+ */
+struct OutputFormat {
+    uint8_t mode;
+    uint8_t vic;
+    uint8_t display_mode;
+    uint8_t reserved1;
+};
+
+/**
+ * New IOCTL added from kernel 4.9
+ */
+struct EDIDSupportList {
+    vec<DPTxFormatSupport> mList;
+};
+

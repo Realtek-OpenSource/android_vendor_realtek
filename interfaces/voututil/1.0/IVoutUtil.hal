@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) 2017 Realtek Semiconductor Corp.
+ */
+
+package vendor.realtek.voututil@1.0;
+
+interface IVoutUtil {
+        setRescaleMode(int32_t videoPlane, int32_t rescaleMode) generates (int32_t status);
+        setFormat3d(int32_t format3d, float fps) generates (int32_t status);
+        setShiftOffset3d(bool exchange_eyeview, bool shift_direction, int32_t delta_offset, int32_t targetPlane) generates (int32_t status);
+        set3Dto2D(int32_t srcformat3d) generates (int32_t status);
+        set3DSub(int32_t sub) generates (int32_t status);
+        applyVoutDisplayWindowSetup(int32_t r, int32_t g, int32_t b, bool isRGB) generates (int32_t status);
+        configureDisplayWindow(int32_t plane, int32_t x, int32_t y, int32_t w, int32_t h) generates (int32_t status);
+        configureDisplayWindowZoomWin(int32_t plane, int32_t x, int32_t y, int32_t w, int32_t h, int32_t zx, int32_t zy, int32_t zw, int32_t zh) generates (int32_t status);
+        configureDisplayWindowDispZoomWin(int32_t plane, int32_t x, int32_t y, int32_t w, int32_t h, int32_t zx, int32_t zy, int32_t zw, int32_t zh) generates (int32_t status);
+        zoom(int32_t plane, int32_t x, int32_t y, int32_t w, int32_t h) generates (int32_t status);
+        setDisplayRatio(int32_t ratio) generates (int32_t status);
+        setDisplayPosition(int32_t x, int32_t y, int32_t w, int32_t h) generates (int32_t status);
+        getHWCV1Rect() generates (int32_t status, int32_t x, int32_t y, int32_t w, int32_t h);
+        setEnhancedSDR(int32_t flag) generates (int32_t status);
+        isHDRTv() generates (bool result);
+        isCVBSOn() generates (bool result);
+        setCVBSOff(int32_t off) generates (int32_t status);
+        setPeakLuminance(int32_t flag) generates (int32_t status);
+        setHdrSaturation(int32_t flag) generates (int32_t status);
+        queryDisplayWin(int32_t plane) generates (int32_t status, memory dispWin);
+        showVideoWindow(int32_t instanceId, int32_t plane) generates (int32_t status);
+        hideVideoWindow(int32_t instanceId, int32_t plane) generates (int32_t status);
+        setTvResolution(int32_t videoSystem, int32_t videoStandard) generates (int32_t status);
+        applyVideoStandardSetup(bool bUpdateVideo, int32_t vSystem, bool bCheck) generates (int32_t status);
+};

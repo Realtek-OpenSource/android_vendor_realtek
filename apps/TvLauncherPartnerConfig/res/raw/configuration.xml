@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <partner-favorite-apps-out-of-box-order>
+        <app
+                name="MediaBrowser"
+                package_name="com.rtk.mediabrowser" />
+        <app
+                name="Multi-Video"
+                package_name="com.mediacodec" />
+        <app
+                name="Play Store"
+                package_name="com.android.vending" />
+        <app
+                name="Netflix"
+                package_name="com.netflix.ninja" />
+        <app
+                name="YouTube"
+                package_name="com.google.android.youtube.tv" />
+        <app
+                name="Play Movies and TV"
+                package_name="com.google.android.videos" />
+        <app
+                name="App Drawer"
+                package_name="com.realtek.appdrawer" />
+        <app
+                name="Encoder"
+                package_name="com.realtek.transcode" />
+    </partner-favorite-apps-out-of-box-order>
+
+    <partner-package-notification-whitelist>
+        <package-name>
+            com.android.systemui.volume
+        </package-name>
+    </partner-package-notification-whitelist>
+
+    <partner-all-apps-out-of-box-order>
+        <app
+            name="App Drawer"
+            package_name="com.realtek.appdrawer" />
+        <app
+            name="MediaBrowser"
+            package_name="com.rtk.mediabrowser" />
+        <app
+            name="Multi-Video"
+            package_name="com.mediacodec" />
+        <app
+            name="Encoder"
+            package_name="com.realtek.transcode" />
+        <app
+            name="YouTube"
+            package_name="com.google.android.youtube.tv" />
+        <app
+            name="Play Movies and TV"
+            package_name="com.google.android.videos" />
+        <app
+            name="Play Music"
+            package_name="com.google.android.music" />
+        <app
+            name="Play Store"
+            package_name="com.android.vending" />
+    </partner-all-apps-out-of-box-order>
+</configuration>

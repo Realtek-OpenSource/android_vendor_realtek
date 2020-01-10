@@ -1,0 +1,12 @@
+cc_prebuilt_library_shared {
+
+    srcs: ["libsync_rtk.so"],
+    tags: [
+        "optional",
+        "eng",
+    ],
+
+    name: "libsync_rtk",
+    vendor: true,
+}
+

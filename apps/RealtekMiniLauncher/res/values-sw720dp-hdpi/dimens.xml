@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="gridview_item_width">130dp</dimen>
+    <dimen name="gridview_item_height">130dp</dimen>
+</resources>

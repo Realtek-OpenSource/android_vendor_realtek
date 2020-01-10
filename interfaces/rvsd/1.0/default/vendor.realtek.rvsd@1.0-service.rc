@@ -1,0 +1,4 @@
+service rvsd-1-0 /vendor/bin/hw/vendor.realtek.rvsd@1.0-service
+    class hal
+    user system
+    group system mediacodec media

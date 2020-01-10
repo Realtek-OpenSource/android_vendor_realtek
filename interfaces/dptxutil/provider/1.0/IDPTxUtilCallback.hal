@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2018 Realtek Semiconductor Corp.
+ */
+
+package vendor.realtek.dptxutil.provider@1.0;
+
+interface IDPTxUtilCallback {
+
+    /**
+     * process event from DPTx service
+     */
+    oneway handleEvent(int32_t event, int32_t vic, int32_t type);
+
+};

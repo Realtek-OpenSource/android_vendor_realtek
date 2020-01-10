@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Whether to allow the welcome (locale picker) to be shown. -->
+	<bool name="show_welcome">true</bool>
+    <!-- Display "SKIP" in network selection screen -->
+    <bool name="show_skip_network">true</bool>
+    <!-- Allow user to skip Google signin at signin setup step -->
+    <bool name="show_skip_signin">true</bool>
+	<!-- Provide a list of locales to show atop the default locale picker.
+	Relevant only if the default locale picker is shown. -->
+	<string-array name="welcome_preferred_locales">
+		<item>en-US</item>
+		<item>zh-TW</item>
+		<item>zh-CN</item>
+	</string-array>
+</resources>

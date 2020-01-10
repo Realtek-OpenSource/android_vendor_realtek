@@ -1,0 +1,12 @@
+/*
+ * Copyright (c) 2017 Realtek Semiconductor Corp.
+ */
+
+package vendor.realtek.factoryutil@1.0;
+
+interface IFactoryUtil {
+
+    factoryLoad() generates (int32_t rst);
+    factorySave() generates (int32_t rst);
+
+};

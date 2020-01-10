@@ -1,0 +1,54 @@
+/*
+ * Copyright (c) 2018 Realtek Semiconductor Corp.
+ */
+
+package vendor.realtek.rvsd@1.0;
+
+interface IMediaRequest {
+    /**
+     * Create connection to DvdPlayer
+     *
+     * @return sockfd The socket fd of MediaPlayRequest
+     */
+    createConnection() generates (int32_t sockfd);
+
+    /**
+     * Close connection
+     */
+    closeConnection();
+
+    /**
+     * Send command to DvdPlayer
+     *
+     * @prarm cmd Command ID
+     * @param data Command data
+     * @return result Send command result
+     * @return cmdSeqNum Command sequence number
+     */
+    sendCommand(int32_t cmd, vec<uint8_t> data) generates (int32_t result, int32_t cmdSeqNum);
+
+    /**
+     * Get command result
+     *
+     * @param cmd Command ID
+     * @param nowait Nonblocking mode
+     * @return result Get restult status
+     * @return cmdSeqNum Command sequence number
+     * @return data Result data
+     */
+    getResult(bool nowait) generates (int32_t result, int32_t cmd, int32_t cmdSeqNum, vec<uint8_t> data);
+
+    /**
+     * Whether the MediaRequest connection is valid
+     *
+     * @return valid Connection is valid or not
+     */
+    isValid() generates (bool valid);
+
+    /**
+     * Get socket fd
+     *
+     * @return sock Socket fd
+     */
+    getSocket() generates (int32_t sock);
+};

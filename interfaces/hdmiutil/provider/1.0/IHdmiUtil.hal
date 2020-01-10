@@ -1,0 +1,99 @@
+/*
+ * Copyright (c) 2017 Realtek Semiconductor Corp.
+ */
+
+package vendor.realtek.hdmiutil.provider@1.0;
+
+import vendor.realtek.hdmiutil.common@1.0;
+import IHdmiUtilCallback;
+
+interface IHdmiUtil {
+
+    /**
+     * set callback function, so HDMI service can notify event
+     *
+     * @param key callback key
+     * @param callback function
+     * @return result
+     */
+    setCallback(int32_t key, IHdmiUtilCallback callback) generates (int32_t result);
+
+    /**
+     * remove registered callback.
+     *
+     * @param key of callback
+     */
+    removeCallback(int32_t key) generates (int32_t result);
+
+    readOutputFormat() generates (int32_t result, OutputFormat format);
+    saveOutputFormat(OutputFormat format) generates (int32_t result);
+
+    readEdidAutoMode() generates(int32_t result);
+    saveEdidAutoMode(int32_t value) generates(int32_t result);
+
+	checkIfHDMIPlugged() generates(bool result);
+
+	getHDMIEDIDReady() generates(bool result);
+
+	getEDIDRawData() generates (int32_t result, EDIDData edid);
+
+	isTVSupport3D () generates(bool result);
+
+	setHDMIFormat3D(int32_t format3d, float fps) generates (int32_t result);
+
+    /**
+     * New API that uses new kernel ioctl
+     */
+    setOutputFormat(OutputFormat format,int32_t flags) generates(int32_t result);
+
+    /**
+     * report supported formats read from driver
+     */
+    getEDIDSupportList() generates(int32_t result, EDIDSupportList list);
+
+    getCurrentOutputFormat() generates (int32_t result, OutputFormat format);
+
+    setHDREotfMode(int32_t mode) generates(int32_t result);
+
+    getColorSet(int32_t vic, int32_t hdr, int32_t policy)
+        generates (int32_t result, ColorSet colorSet);
+
+    getColorSet2(int32_t vic, int32_t hdr, int32_t policy) generates (int32_t color_rst);
+
+    saveColorModeEnum(int32_t val) generates (int32_t rst);
+    readColorModeEnum() generates (int32_t rst);
+
+    readHDRAutoProperty() generates (int32_t rst);
+
+    checkHDRModeSupported(int32_t mode) generates (int32_t rst);
+
+    isUnderDoviMode(int32_t mode) generates (int32_t rst);
+
+    setHDMIEnable(int32_t enable) generates (int32_t rst);
+
+    getTVCapInfo() generates (int32_t result, TVCapInfo info);
+
+    getSinkCapability() generates(int32_t rst);
+
+    /**
+	 * setHDMIVideoColorMode(int32_t mode) generates (int32_t result);
+     * getVideoFormat() generates(int32_t result, VideoFormat formats);
+	 * getTVSystemForRestored () generates(int32_t result);
+     * checkTVSystem(int32_t inputTvSystem, int32_t colorspace_deepcolor) generates (int32_t result);
+     */
+
+    /**
+     * to sync between dptx and hdmi
+     */
+    acquireLock(int32_t type) generates (int32_t rst);
+
+    /**
+     * to sync between dptx and hdmi
+     */
+    releaseLock(int32_t type) generates (int32_t rst);
+
+    setHDCPVersion(int32_t version) generates (int32_t result);
+    getHDCPVersion() generates (int32_t result);
+    getConfiguredHDCPVersion() generates (int32_t result);
+
+};
